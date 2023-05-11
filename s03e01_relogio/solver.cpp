@@ -19,7 +19,17 @@ public:
         if (hora >=0 && hora <= 23)
             this->hora = hora;
         else
-            fn::write("fail: hora invalida\n");
+            fn::write("fail: hora invalida");
+    }
+    void setMinuto(int value) {
+        this->minuto = value;
+    }
+    void setSegundo(int value) {
+        this->segundo = value;
+    }
+
+    void nextSecond() {
+        
     }
 
     std::string str() {
@@ -39,6 +49,10 @@ int main() {
             break;
         } else if (args[0] == "show") {
             fn::write(time.str());
+        } else if (args[0] == "set") {
+            time.setHora(+args[1]);
+            time.setMinuto(+args[2]);
+            time.setSegundo(+args[3]);
         } else {
             fn::write("fail: comando invalido\n");
         }

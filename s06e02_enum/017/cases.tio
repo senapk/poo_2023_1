@@ -1,0 +1,338 @@
+>>>>>>>> init
+init 20
+show
+end
+========
+$init 20
+$show
+[] : 0.00$ : 0/20 : unbroken
+$end
+<<<<<<<<
+
+>>>>>>>> insert
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+end
+========
+$init 20
+$show
+[] : 0.00$ : 0/20 : unbroken
+$addCoin 10
+$show
+[] : 0.10$ : 1/20 : unbroken
+$addCoin 50
+$show
+[] : 0.60$ : 4/20 : unbroken
+$end
+<<<<<<<<
+
+>>>>>>>> itens
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+addItem ouro 3
+show
+addItem passaporte 2
+show
+end
+========
+$init 20
+$show
+[] : 0.00$ : 0/20 : unbroken
+$addCoin 10
+$show
+[] : 0.10$ : 1/20 : unbroken
+$addCoin 50
+$show
+[] : 0.60$ : 4/20 : unbroken
+$addItem ouro 3
+$show
+[ouro] : 0.60$ : 7/20 : unbroken
+$addItem passaporte 2
+$show
+[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+$end
+<<<<<<<<
+
+>>>>>>>> failed break
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+addItem ouro 3
+show
+addItem passaporte 2
+show
+getItems
+getCoins
+show
+end
+========
+$init 20
+$show
+[] : 0.00$ : 0/20 : unbroken
+$addCoin 10
+$show
+[] : 0.10$ : 1/20 : unbroken
+$addCoin 50
+$show
+[] : 0.60$ : 4/20 : unbroken
+$addItem ouro 3
+$show
+[ouro] : 0.60$ : 7/20 : unbroken
+$addItem passaporte 2
+$show
+[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+$getItems
+fail: you must break the pig first
+[]
+$getCoins
+fail: you must break the pig first
+0.00
+$show
+[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+$end
+<<<<<<<<
+
+>>>>>>>> breaking
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+addItem ouro 3
+show
+addItem passaporte 2
+show
+getItems
+getCoins
+show
+break
+show
+end
+========
+$init 20
+$show
+[] : 0.00$ : 0/20 : unbroken
+$addCoin 10
+$show
+[] : 0.10$ : 1/20 : unbroken
+$addCoin 50
+$show
+[] : 0.60$ : 4/20 : unbroken
+$addItem ouro 3
+$show
+[ouro] : 0.60$ : 7/20 : unbroken
+$addItem passaporte 2
+$show
+[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+$getItems
+fail: you must break the pig first
+[]
+$getCoins
+fail: you must break the pig first
+0.00
+$show
+[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+$break
+$show
+[ouro, passaporte] : 0.60$ : 0/20 : broken
+$end
+<<<<<<<<
+
+>>>>>>>> getItems
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+addItem ouro 3
+show
+addItem passaporte 2
+show
+getItems
+getCoins
+show
+break
+show
+getItems
+show
+end
+========
+$init 20
+$show
+[] : 0.00$ : 0/20 : unbroken
+$addCoin 10
+$show
+[] : 0.10$ : 1/20 : unbroken
+$addCoin 50
+$show
+[] : 0.60$ : 4/20 : unbroken
+$addItem ouro 3
+$show
+[ouro] : 0.60$ : 7/20 : unbroken
+$addItem passaporte 2
+$show
+[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+$getItems
+fail: you must break the pig first
+[]
+$getCoins
+fail: you must break the pig first
+0.00
+$show
+[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+$break
+$show
+[ouro, passaporte] : 0.60$ : 0/20 : broken
+$getItems
+[ouro, passaporte]
+$show
+[] : 0.60$ : 0/20 : broken
+$end
+<<<<<<<<
+
+>>>>>>>> getCoins
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+addItem ouro 3
+show
+addItem passaporte 2
+show
+getItems
+getCoins
+show
+break
+show
+getItems
+show
+getCoins
+show
+end
+========
+$init 20
+$show
+[] : 0.00$ : 0/20 : unbroken
+$addCoin 10
+$show
+[] : 0.10$ : 1/20 : unbroken
+$addCoin 50
+$show
+[] : 0.60$ : 4/20 : unbroken
+$addItem ouro 3
+$show
+[ouro] : 0.60$ : 7/20 : unbroken
+$addItem passaporte 2
+$show
+[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+$getItems
+fail: you must break the pig first
+[]
+$getCoins
+fail: you must break the pig first
+0.00
+$show
+[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+$break
+$show
+[ouro, passaporte] : 0.60$ : 0/20 : broken
+$getItems
+[ouro, passaporte]
+$show
+[] : 0.60$ : 0/20 : broken
+$getCoins
+0.60
+$show
+[] : 0.00$ : 0/20 : broken
+$end
+<<<<<<<<
+
+>>>>>>>> None%
+init 10
+break
+addCoin 10
+show
+addItem bilhete 2
+show
+end
+========
+$init 10
+$break
+$addCoin 10
+fail: the pig is broken
+$show
+[] : 0.00$ : 0/10 : broken
+$addItem bilhete 2
+fail: the pig is broken
+$show
+[] : 0.00$ : 0/10 : broken
+$end
+<<<<<<<<
+
+>>>>>>>> full coin
+init 5
+addCoin 10
+addCoin 25
+show
+addCoin 50
+show
+end
+========
+$init 5
+$addCoin 10
+$addCoin 25
+$show
+[] : 0.35$ : 3/5 : unbroken
+$addCoin 50
+fail: the pig is full
+$show
+[] : 0.35$ : 3/5 : unbroken
+$end
+<<<<<<<<
+
+>>>>>>>> full item
+init 5
+addCoin 10
+addCoin 25
+show
+addCoin 50
+show
+addItem ouro 1
+show
+addItem pirulito 2
+show
+end
+========
+$init 5
+$addCoin 10
+$addCoin 25
+$show
+[] : 0.35$ : 3/5 : unbroken
+$addCoin 50
+fail: the pig is full
+$show
+[] : 0.35$ : 3/5 : unbroken
+$addItem ouro 1
+$show
+[ouro] : 0.35$ : 4/5 : unbroken
+$addItem pirulito 2
+fail: the pig is full
+$show
+[ouro] : 0.35$ : 4/5 : unbroken
+$end
+<<<<<<<<
